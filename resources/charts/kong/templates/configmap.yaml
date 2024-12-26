@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $.Values.kong.config.name }}
+  namespace: {{ $.Values.kong.ingress.namespace }}
+data:
+  {{- ($.Files.Glob $.Values.kong.config.path).AsConfig | nindent 2 }}

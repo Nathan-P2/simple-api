@@ -1,0 +1,6 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: {{ $.Values.kong.config.pluginName }}
+  namespace: {{ $.Values.kong.ingress.namespace }}
+plugin: {{ $.Values.kong.config.pluginName }}

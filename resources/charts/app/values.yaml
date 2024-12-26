@@ -1,0 +1,11 @@
+general:
+  app:
+    name: simple-api
+    port: 80
+    containerPort: 3000
+    namespace: api
+  spec:
+    replicas: 1
+  image:
+    name: simple-api
+    tag: "1.0"

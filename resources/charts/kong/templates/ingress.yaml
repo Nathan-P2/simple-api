@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $.Values.kong.ingress.name }}
+  namespace: {{ $.Values.kong.ingress.namespace }}
+  annotations:
+    kubernetes.io/ingress.class: {{ $.Values.kong.ingress.class }}
+    konghq.com/plugins: '{{ $.Values.kong.ingress.plugins | join ", " }}'
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ $.Values.general.api.externalName }}
+            port:
+              number: {{ $.Values.general.api.port }}

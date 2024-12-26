@@ -1,0 +1,25 @@
+general:
+  api:
+    name: simple-api
+    externalName: simple-api-external
+    namespace: api
+    port: 80
+
+kong:
+  ingress:
+    name: kong-ingress
+    namespace: gateway
+    class: kong
+    plugins:
+      - request-transformer
+      - response-transformer
+      - redirect-api
+  config:
+    name: kong-plugin-redirect-api
+    pluginName: redirect-api
+    path: plugins/redirect/**
+
+plugins:
+  configMaps:
+  - name: kong-plugin-redirect-api
+    pluginName: redirect-api
