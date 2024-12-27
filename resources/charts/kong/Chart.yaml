@@ -2,6 +2,6 @@ apiVersion: v2
 name: my-kong-chart
 version: 0.1.0
 dependencies:
-  - name: kong
+  - name: kong # Nome da dependency (para ser modificado no values.yaml)
     version: "2.27.0"
     repository: "https://charts.konghq.com"

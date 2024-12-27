@@ -13,15 +13,13 @@ ingress:
     - request-transformer
     - response-transformer
     - redirect-api
+
 config:
   name: kong-plugin-redirect-api
   pluginName: redirect-api
   path: customPlugins/redirect/**
 
-kong:
-  env:
-    KONG_PLUGINS: "bundled,redirect-api"
-    log_level: "debug"
+kong: # Aqui modificamos as variaveis da dependency (no caso chamamos de kong)
   plugins:
     configMaps:
     - name: kong-plugin-redirect-api
