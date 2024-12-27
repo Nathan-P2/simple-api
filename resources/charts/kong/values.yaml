@@ -5,21 +5,24 @@ general:
     namespace: api
     port: 80
 
-kong:
-  ingress:
-    name: kong-ingress
-    namespace: gateway
-    class: kong
-    plugins:
-      - request-transformer
-      - response-transformer
-      - redirect-api
-  config:
-    name: kong-plugin-redirect-api
-    pluginName: redirect-api
-    path: plugins/redirect/**
+ingress:
+  name: kong-ingress
+  namespace: gateway
+  class: kong
+  plugins:
+    - request-transformer
+    - response-transformer
+    - redirect-api
+config:
+  name: kong-plugin-redirect-api
+  pluginName: redirect-api
+  path: customPlugins/redirect/**
 
-plugins:
-  configMaps:
-  - name: kong-plugin-redirect-api
-    pluginName: redirect-api
+kong:
+  env:
+    KONG_PLUGINS: "bundled,redirect-api"
+    log_level: "debug"
+  plugins:
+    configMaps:
+    - name: kong-plugin-redirect-api
+      pluginName: redirect-api

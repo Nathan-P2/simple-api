@@ -3,5 +3,5 @@ name: my-kong-chart
 version: 0.1.0
 dependencies:
   - name: kong
-    version: "2.46.0"
+    version: "2.27.0"
     repository: "https://charts.konghq.com"

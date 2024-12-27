@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ $.Values.general.api.externalName }}
-  namespace: {{ $.Values.kong.ingress.namespace }}
+  namespace: {{ $.Values.ingress.namespace }}
 spec:
   type: ExternalName
   externalName: {{ $.Values.general.api.name }}.{{ $.Values.general.api.namespace }}
