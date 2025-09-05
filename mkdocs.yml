@@ -1,0 +1,7 @@
+site_name: 'Documentação do ms-workflow'
+
+nav:
+  - Index: index.md
+
+plugins:
+  - techdocs-core
