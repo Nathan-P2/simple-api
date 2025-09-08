@@ -2,6 +2,7 @@ site_name: 'Documentação do ms-workflow'
 
 nav:
   - Index: index.md
+  - Changelog: changelog.md
 
 plugins:
   - techdocs-core
